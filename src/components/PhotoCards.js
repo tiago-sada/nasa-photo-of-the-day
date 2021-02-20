@@ -1,5 +1,13 @@
 import React from 'react';
 import PhotoCard from './PhotoCard.js';
+import styled from 'styled-components'
+
+const Gallery = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+`;
 
 const PhotoCards = (props) => {
     const { photos } = props;
@@ -11,7 +19,7 @@ const PhotoCards = (props) => {
     }
 
     return (
-        <div className='photos-container-wrapper'>
+        <Gallery>
           {
             photos.map(photo => {
               return (
@@ -19,7 +27,7 @@ const PhotoCards = (props) => {
               )
             })
           }
-        </div>
+        </Gallery>
       );
   
     

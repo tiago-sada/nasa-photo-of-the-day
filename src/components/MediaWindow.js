@@ -1,4 +1,24 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const Media = styled.div`
+    width: 250px;
+    height: 250px;
+    border-radius: 4px;
+    background-repeat: 'no-repeat';
+    background-size: cover;
+`;
+
+const Error = styled.div`
+    width: 250px;
+    height: 250px;
+    border-radius: 4px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgray;
+`;
+
 
 const MediaWindow = props => {
   // 🔥 Make sure the parent of Post is passing the right props!
@@ -6,17 +26,13 @@ const MediaWindow = props => {
 
     if (type === "image") {
         return (
-            <div className='media-image-wrapper'>
-                <img
-                alt='post thumbnail'
-                className='media-image'
-                src={url}
-                />
-            </div>
+            <Media style={{ 
+                backgroundImage: `url(${url})`
+              }}/>
         )
     } else {
         return (
-            <p>Videos cannot be shown</p>
+            <Error>Videos cannot be shown</Error>
         )
     }
 
